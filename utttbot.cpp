@@ -75,7 +75,7 @@ void UTTTBot::updateBoard(string value)
 }
 
 //update 3X3 board
-void UTTTBot::updateField(string value)
+void UTTTBot::updateMacroBoard(string value)
 {
 	int x = 0;
 	int y = 0;
@@ -86,16 +86,16 @@ void UTTTBot::updateField(string value)
 				str += value[i];
 			}
 			if (str == ".") {
-				field[x][y] = 2;
+				macroBoard[x][y] = 2;
 			}
 			else if (str == "-1") {
-				field[x][y] = -1;
+				macroBoard[x][y] = -1;
 			}
 			else if (str == "1") {
-				field[x][y] = 1;
+				macroBoard[x][y] = 1;
 			}
 			else {
-				field[x][y] = 0;
+				macroBoard[x][y] = 0;
 			}
 			str = "";
 			x++;
@@ -110,7 +110,7 @@ void UTTTBot::updateField(string value)
 	}
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			cerr << field[j][i] << ",";
+			cerr << macroBoard[j][i] << ",";
 		}
 		cerr << endl;
 	}
@@ -124,7 +124,7 @@ void UTTTBot::update(string &key, string &value) {
 	} else if (key == "field") {
 		updateBoard(value);
 	} else if (key == "macroboard") {
-		updateField(value);
+		updateMacroBoard(value);
 	}
 }
 

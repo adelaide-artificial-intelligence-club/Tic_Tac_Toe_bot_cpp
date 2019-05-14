@@ -16,13 +16,13 @@ private:
 	int your_botid;
 	int r;
 	vector<vector<int>> board;
-	vector<vector<int>> field;
+	vector<vector<int>> macroBoard;
 
 	vector<string> split(const std::string &s, char delim);
 	void setting(string &key, string &value);
 	void update(string &key, string &value);
 	void move(int timeout);
-	void updateField(std::string value);
+	void updateMacroBoard(std::string value);
 	void updateBoard(std::string value);
 public:
 	UTTTBot();
