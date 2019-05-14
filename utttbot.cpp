@@ -37,11 +37,25 @@ void UTTTBot::run() {
 
 void UTTTBot::move(int timeout) {
 	//add your move stuff here
-	// the macro board can be accessed with field[X][Y]
+	// the macro board can be accessed with macroBoard[X][Y]
 	// the 9X9 can be accesed with board[Xb][Yb]
-	int x = 1;
-	int y = 1;
-	cout << "place_disc " << x << " " << y << endl;
+	vector<vector<double>> moves;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (field[i][j] == -1) {
+				for (int k = i * 3; k < i * 3 + 3; k++) {
+					for (int w = j * 3; w < j * 3 + 3; w++) {
+						if (board[k][w] == -1) {
+							vector<double> move = { double(k), double(w) };
+							moves.push_back(move);
+						}
+					}
+				}
+			}
+		}
+	}
+	int move = rand() % moves.size();
+	cout << "place_move " << int(moves[move][0]) << " " << int(moves[move][1]) << endl;
 }
 
 //update the 9X9 board
