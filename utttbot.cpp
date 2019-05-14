@@ -12,9 +12,9 @@ UTTTBot::UTTTBot()
 	for (int i = 0; i < 9; i++) {
 		board[i].resize(9);
 	}
-	field.resize(3);
+	macroBoard.resize(3);
 	for (int i = 0; i < 3; i++) {
-		field[i].resize(3);
+		macroBoard[i].resize(3);
 	}
 }
 
@@ -42,7 +42,7 @@ void UTTTBot::move(int timeout) {
 	vector<vector<double>> moves;
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			if (field[i][j] == -1) {
+			if (macroBoard[i][j] == -1) {
 				for (int k = i * 3; k < i * 3 + 3; k++) {
 					for (int w = j * 3; w < j * 3 + 3; w++) {
 						if (board[k][w] == -1) {
